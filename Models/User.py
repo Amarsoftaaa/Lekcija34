@@ -1,4 +1,4 @@
-from db import Db
+from Models.Db import Db
 
 class User(Db):
 
@@ -22,8 +22,3 @@ class User(Db):
             raise ValueError("Ime mora imati najmanje 5 znakova")
         self.__name=name
 
-amar = User()
-amar.set_name ("TEst 3232")
-amar.set_age(19)
-
-print(amar.get_name())
