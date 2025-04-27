@@ -8,17 +8,17 @@
 class Car:
     VALID_CARS = {
         "Audi": [
-            {"model": "A4", "production_year": 2004},
-            {"model": "A5", "production_year": 2003},
-            {"model": "A6", "production_year": 2005}
+            {"model": "A4", "production_year": 2004, "rented": False, "rented_until": None},
+            {"model": "A5", "production_year": 2003, "rented": False, "rented_until": None},
+            {"model": "A6", "production_year": 2005, "rented": False, "rented_until": None}
         ],
         "BMW": [
-            {"model": "M5", "production_year": 2011},
-            {"model": "M3", "production_year": 2010}
+            {"model": "M5", "production_year": 2011, "rented": False, "rented_until": None},
+            {"model": "M3", "production_year": 2010, "rented": False, "rented_until": None}
         ],
         "Mercedes": [
-            {"model": "GLK", "production_year": 2015},
-            {"model": "GLE", "production_year": 2016}
+            {"model": "GLK", "production_year": 2015, "rented": False, "rented_until": None},
+            {"model": "GLE", "production_year": 2016, "rented": False, "rented_until": None}
         ]
     }
 

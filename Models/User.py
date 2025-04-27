@@ -2,6 +2,7 @@ from Models.Db import Db
 
 
 class User(Db):
+    ALL_USERS = []
 
     def __init__(self):
         super().__init__()
@@ -9,7 +10,7 @@ class User(Db):
         self.__name = None
 
     @property
-    def age(self, age):
+    def age(self, ):
         return self.__age
 
     @age.setter
@@ -20,10 +21,19 @@ class User(Db):
 
     @property
     def name(self):
+
         return self.__name
 
     @name.setter
-    def name(self, name):
-        if len(name) < 5:
-            raise ValueError("Ime mora imati najmanje 5 znakova")
-        self.__name = name
+    def name(self, newname):
+        split_name = newname.split()
+
+        if len(split_name) < 2:
+            raise ValueError("Name must be in format first last  name")
+        self.__name = newname
+
+    def create(self):
+        if self.__name is None or self.__age is None:
+            raise ValueError("Name or age not set")
+
+        User.ALL_USERS.append([self.__name, self.__age])
