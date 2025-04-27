@@ -1,4 +1,6 @@
 import pymysql
+
+
 class Db:
 
     def __init__(self):
@@ -10,4 +12,5 @@ class Db:
 
         )
 
-test= Db()
+
+test = Db()
