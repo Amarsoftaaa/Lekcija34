@@ -1,4 +1,7 @@
+
 from Models.Db import Db
+
+
 
 
 class User(Db):
@@ -11,6 +14,7 @@ class User(Db):
 
     @property
     def age(self, ):
+
         return self.__age
 
     @age.setter
@@ -37,3 +41,9 @@ class User(Db):
             raise ValueError("Name or age not set")
 
         User.ALL_USERS.append([self.__name, self.__age])
+
+
+
+
+
+

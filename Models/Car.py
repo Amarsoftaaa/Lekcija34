@@ -1,24 +1,20 @@
-# Brandovi : audi , bmw , mercedes
-# Modeli : Audi : A4 A5 A6 BMW : M5 M3 Mercedes: GLK GLE
+from xml.dom import VALIDATION_ERR
 
-# BONUS Modeli A4 (2004) a5 (2003) a6 (2002)
-# svaki model ima svoju godinu propizvodnje
-# __production_year -->2004 ---> moze da getuje vrijednost ali nmz da upise novu vrijednost
 
 class Car:
     VALID_CARS = {
         "Audi": [
-            {"model": "A4", "production_year": 2004, "rented": False, "rented_until": None},
+            {"model": "A4", "production_year": 2004, "rented": True,"rented_until": "30.05.2025"},
             {"model": "A5", "production_year": 2003, "rented": False, "rented_until": None},
             {"model": "A6", "production_year": 2005, "rented": False, "rented_until": None}
         ],
         "BMW": [
             {"model": "M5", "production_year": 2011, "rented": False, "rented_until": None},
-            {"model": "M3", "production_year": 2010, "rented": False, "rented_until": None}
+            {"model": "M3", "production_year": 2010, "rented": False,"rented_until": None}
         ],
         "Mercedes": [
-            {"model": "GLK", "production_year": 2015, "rented": False, "rented_until": None},
-            {"model": "GLE", "production_year": 2016, "rented": False, "rented_until": None}
+            {"model": "GLK", "production_year": 2015, "rented": True,"rented_until": "30.07.2025"},
+            {"model": "GLE", "production_year": 2016, "rented": False,"rented_until": None}
         ]
     }
 
@@ -26,7 +22,9 @@ class Car:
         self.__brand = None
         self.__model = None
         self.__production_year = None
+        self.__rented = None
 
+        self.__rented_until = None
     @property
     def model(self):
         return self.__model
@@ -72,8 +70,15 @@ class Car:
         self.__production_year = year
 
 
+
+
+
+
+
+
 audi = Car()
 audi.brand = "Audi"
 audi.model = "A4"
-
-print(audi.production_year)
+audi.rented_from = "sadsajkds"
+audi.rented_until = "dsafkdj"
+print(audi.rented_until)
