@@ -1,7 +1,7 @@
 from xml.dom import VALIDATION_ERR
+from Models.Db import Db
 
-
-class Car:
+class Car(Db):
     VALID_CARS = {
         "Audi": [
             {"model": "A4", "production_year": 2004, "rented": True,"rented_until": "30.05.2025"},
@@ -9,7 +9,7 @@ class Car:
             {"model": "A6", "production_year": 2005, "rented": False, "rented_until": None}
         ],
         "BMW": [
-            {"model": "M5", "production_year": 2011, "rented": False, "rented_until": None},
+            {"model": "M5", "production_year": 2011, "rented": True , "rented_until": "12.12.2025"},
             {"model": "M3", "production_year": 2010, "rented": False,"rented_until": None}
         ],
         "Mercedes": [
@@ -23,6 +23,8 @@ class Car:
         self.__model = None
         self.__production_year = None
         self.__rented = None
+        self.__rented_until = None
+        super().__init__()
 
         self.__rented_until = None
     @property
@@ -73,12 +75,5 @@ class Car:
 
 
 
-
-
-
 audi = Car()
-audi.brand = "Audi"
-audi.model = "A4"
-audi.rented_from = "sadsajkds"
-audi.rented_until = "dsafkdj"
-print(audi.rented_until)
+

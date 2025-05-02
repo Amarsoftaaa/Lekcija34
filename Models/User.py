@@ -39,8 +39,25 @@ class User(Db):
     def create(self):
         if self.__name is None or self.__age is None:
             raise ValueError("Name or age not set")
+        try:
+            self._cursor = self._connection.cursor()
+            self._cursor.execute(
+                "INSERT INTO users (username, user_age) VALUES (%s, %s)",
+                (self.__name, self.__age)
+            )
+            self._connection.commit()
+            self._connection.close()
+            print("Korisnik je uspješno dodat u bazu.")
+        except Exception as e:
+            print("Greška prilikom ubacivanja:", e)
+
 
         User.ALL_USERS.append([self.__name, self.__age])
+
+
+
+
+
 
 
 
