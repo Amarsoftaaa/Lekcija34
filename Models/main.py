@@ -46,14 +46,10 @@ while option is None:
                     print(car)
                     print("\nAko zelite rentati vozilo pritisnite 5")
                 elif car["rented"] and options == 4:
-
-                    for car_rented in car:
-                        rented_until_date = datetime.strptime(car["rented_until"], "%d.%m.%Y")
-                        today = datetime.today()
-                        remaining_days = (rented_until_date - today).days
-                        var = car["rented_until"] == remaining_days
-                        print(f" {car} ostalo je jos {remaining_days} dana do kraja rente")
-
+                    rented_until_date = datetime.strptime(car["rented_until"], "%d.%m.%Y")
+                    today = datetime.today()
+                    remaining_days = (rented_until_date - today).days
+                    print(f" {brand}{car} ostalo je jos {remaining_days} dana do kraja rente")
                     option = None
     elif options == 5:
         car_rented = input("Koje auto zelite rentati")
@@ -61,5 +57,6 @@ while option is None:
         car_until_gultig= datetime.strptime(car_until,"%d.%m.%Y")
         today_rent=datetime.today()
         total_rent_days = car_until_gultig-today_rent
-        print(f"Uspjesno ste rentali {car_rented} ukupno {total_rent_days} do {car_until} godine.")
+        print(f"Uspjesno ste rentali {car_rented} do {car_until} godine.")
+
 

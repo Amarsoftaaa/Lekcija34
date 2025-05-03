@@ -1,11 +1,12 @@
-from Models.Db import Db
-from Models.Car import Car
 from datetime import datetime
+
+from Models.Car import Car
+from Models.Db import Db
+
 
 class InsertCar(Db):
     def __init__(self):
         super().__init__()
-
 
     def insert_car(self):
         cursor = self._connection.cursor()
@@ -19,12 +20,12 @@ class InsertCar(Db):
 
                 if rented_until:
                     rented_until = datetime.strptime(rented_until, "%d.%m.%Y").strftime("%Y-%m-%d")
-                else :
+                else:
                     rented_until = None
 
                 print(f"Inserting: {brands}, {model}, {year}, {rented}, {rented_until}")
                 cursor.execute("INSERT INTO cars (car_brands,cars_model,cars_year,rented,rented_until)"
-                                  "VALUES (%s,%s,%s,%s,%s)", (brands,model,year,rented,rented_until))
+                               "VALUES (%s,%s,%s,%s,%s)", (brands, model, year, rented, rented_until))
 
         self._connection.commit()
         cursor.close()
@@ -32,8 +33,8 @@ class InsertCar(Db):
 
 if __name__ == "__main__":
     try:
-            inserter = InsertCar()
-            inserter.insert_car()
-            print("Cars successfully inserted into database!")
+        inserter = InsertCar()
+        inserter.insert_car()
+        print("Cars successfully inserted into database!")
     except Exception as e:
-            print(f"Error: {e}")
+        print(f"Error: {e}")
